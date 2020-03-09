@@ -34,11 +34,14 @@ struct ContentView: View {
     
     func startTimer() {
         Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (timer) in
-            if self.simpleProgess >= 1.0 {
-                timer.invalidate()
-            } else {
-                self.simpleProgess += 0.01
+            withAnimation {
+                if self.simpleProgess >= 1.0 {
+                    timer.invalidate()
+                } else {
+                    self.simpleProgess += 0.01
+                }
             }
+           
         }
     }
 }
